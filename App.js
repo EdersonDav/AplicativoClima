@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, Text, View, Alert, Image } from 'react-native';
 import * as Location from 'expo-location';
 import axios from 'axios';
 import { RectButton } from 'react-native-gesture-handler';
-import { AntDesign as Icons } from '@expo/vector-icons'
-// import { KEY_API } from 'react-native-dotenv'
+import { AntDesign as Icons } from '@expo/vector-icons';
 
 export default function App() {
   const [weather, setWeather] = useState(false);
@@ -50,32 +49,34 @@ export default function App() {
     var day = dayName[now.getDay()];
     var date = now.getDate()
     var month = monName[now.getMonth()];
-    var year = new Date().getFullYear();
-    setDate(`${day}, ${date} de ${month} de ${year}`);
-  }, [])
+    var year = now.getFullYear();
+    setDate(`${day}, ${date} de ${month} de ${year} `);
+  }, [weather])
 
   if (weather == false) {
     return (
-      <View >
-        <StatusBar barStyle="dark-content" backgroundColor="trasnparent" translucent />
+      <View style={styles.container} >
+        <StatusBar barStyle="dark-content" translucent />
         <Text>Carregando .....</Text>
+
       </View>
     )
   }
   else if (locationPositon[0] !== 0) {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor="trasnparent" translucent />
+        <StatusBar barStyle="dark-content" translucent />
         <Text style={styles.title}>{weather["name"]}/{weather["sys"]["country"]}</Text>
         <Text style={styles.description}>{weather['weather'][0]['description']}</Text>
+        <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/${weather['weather'][0]['icon']}@2x.png` }} />
         <View style={styles.temp}>
           <Text style={styles.weather}>{Math.trunc(weather['main']['temp'])}°C </Text>
           <View style={styles.maxMin}>
             <Text style={styles.max}>{Math.trunc(weather['main']['temp_max'])}°C </Text>
-            <Text style={styles.min}>{Math.trunc(weather['main']['temp_min'])}°C </Text>
+            <Text style={styles.min}>{Math.trunc(weather['main']['temp_min'])}°C</Text>
           </View>
         </View>
-        <Text style={styles.info}>Umidade: {weather['main']['humidity']}%</Text>
+        <Text style={styles.info}>Umidade - {weather['main']['humidity']}%</Text>
         <Text style={styles.info}>{date} </Text>
         <RectButton style={styles.btn} onPress={() => { getApi(locationPositon[0], locationPositon[1]) }}>
           <View style={styles.btnIcon}>
@@ -87,7 +88,7 @@ export default function App() {
     );
   } else {
     return (
-      <View >
+      <View style={styles.container} >
         <StatusBar barStyle="dark-content" backgroundColor="trasnparent" translucent />
       </View>
     );
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 32,
     alignItems: "center",
-    backgroundColor: "#FFF"
+    backgroundColor: "#F0F0F0"
   },
   title: {
     color: '#322153',
@@ -111,12 +112,17 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 15,
   },
+  image: {
+    width: 100,
+    height: 100,
+  },
   weather: {
-    fontSize: 40,
+    fontSize: 50,
   },
   temp: {
     position: "relative",
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 20
   },
   maxMin: {
     position: "absolute",
@@ -125,12 +131,16 @@ const styles = StyleSheet.create({
   max: {
     color: "#f00",
     fontSize: 15,
-    marginTop: 4
+    marginTop: 10
   },
   min: {
     color: "#00f",
     marginTop: 10,
     fontSize: 15
+  },
+  info: {
+    fontSize: 15,
+    marginTop: 10
   },
   btn: {
     backgroundColor: '#0005',
@@ -141,6 +151,14 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     alignItems: 'center',
     marginTop: 50,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+    elevation: 24,
   },
 
   btnIcon: {
