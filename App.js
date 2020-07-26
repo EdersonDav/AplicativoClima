@@ -7,9 +7,16 @@ import { RectButton } from 'react-native-gesture-handler';
 import { AntDesign as Icons } from '@expo/vector-icons';
 
 export default function App() {
+  //State para salvar o response da API
   const [weather, setWeather] = useState(false);
-  const [locationPositon, setLocationPositon] = useState([0, 0]);
+
+  //State para salvar a localização do usuário
+  const [locationPosition, setLocationPosition] = useState([0, 0]);
+
+  //State para salvar uma string que contem o dia da semana, a data o mes e ano do sistema 
   const [date, setDate] = useState(false);
+
+  //Const que contem as informações de data em português para salvar na state date e exibir na tela
   const dayName = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"]
   const monName = ["janeiro", "fevereiro", "março", "abril", "Maio", "junho", "julho", "agosto", "outubro", "novembro", "dezembro"]
 
@@ -18,7 +25,7 @@ export default function App() {
       params: {
         lat: latitude,
         lon: longitude,
-        appid: '',
+        appid: '<Adicione a sua API KEY>',
         lang: 'pt',
         units: 'metric'
       }
@@ -27,6 +34,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    //Função assíncrona para pegar a localização do usuário
     async function position() {
       const { status } = await Location.requestPermissionsAsync();
       if (status !== 'granted') {
@@ -36,7 +44,7 @@ export default function App() {
       const location = await Location.getCurrentPositionAsync();
       const { latitude, longitude } = location.coords;
       getApi(latitude, longitude)
-      setLocationPositon([
+      setLocationPosition([
         latitude,
         longitude
       ])
@@ -62,7 +70,7 @@ export default function App() {
       </View>
     )
   }
-  else if (locationPositon[0] !== 0) {
+  else if (locationPosition[0] !== 0) {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" translucent />
@@ -76,9 +84,9 @@ export default function App() {
             <Text style={styles.min}>{Math.trunc(weather['main']['temp_min'])}°C</Text>
           </View>
         </View>
-        <Text style={styles.info}>Umidade - {weather['main']['humidity']}%</Text>
+        <Text style={styles.info}>Humidade - {weather['main']['humidity']}%</Text>
         <Text style={styles.info}>{date} </Text>
-        <RectButton style={styles.btn} onPress={() => { getApi(locationPositon[0], locationPositon[1]) }}>
+        <RectButton style={styles.btn} onPress={() => { getApi(locationPosition[0], locationPosition[1]) }}>
           <View style={styles.btnIcon}>
             <Icons name="reload1" color="#fff" size={30} />
           </View>
@@ -89,7 +97,7 @@ export default function App() {
   } else {
     return (
       <View style={styles.container} >
-        <StatusBar barStyle="dark-content" backgroundColor="trasnparent" translucent />
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
       </View>
     );
   }
@@ -101,10 +109,10 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 32,
     alignItems: "center",
-    backgroundColor: "#F0F0F0"
+    backgroundColor: "#FcFcFc"
   },
   title: {
-    color: '#322153',
+    color: '#000',
     fontSize: 25,
     maxWidth: 260,
     marginTop: 64,
@@ -129,12 +137,12 @@ const styles = StyleSheet.create({
     right: -50
   },
   max: {
-    color: "#f00",
+    color: "#a00",
     fontSize: 15,
     marginTop: 10
   },
   min: {
-    color: "#00f",
+    color: "#00a",
     marginTop: 10,
     fontSize: 15
   },
@@ -143,7 +151,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   btn: {
-    backgroundColor: '#0005',
+    backgroundColor: '#0006',
     height: 60,
     width: 180,
     flexDirection: 'row',
