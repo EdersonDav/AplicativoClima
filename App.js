@@ -84,7 +84,7 @@ export default function App() {
             <Text style={styles.min}>{Math.trunc(weather['main']['temp_min'])}°C</Text>
           </View>
         </View>
-        <Text style={styles.info}>Humidade - {weather['main']['humidity']}%</Text>
+        <Text style={styles.info}>Umidade - {weather['main']['humidity']}%</Text>
         <Text style={styles.info}>{date} </Text>
         <RectButton style={styles.btn} onPress={() => { getApi(locationPosition[0], locationPosition[1]) }}>
           <View style={styles.btnIcon}>

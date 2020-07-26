@@ -6,8 +6,9 @@
 
 ### Tela do app
 <div align="center" >
-<img src=".github/cl01.jpeg?raw=true" height="500px"/>
-<img src=".github/cl02.jpeg?raw=true" height="500px"/>
+<img src=".github/cl1.jpeg?raw=true" height="500px"/>
+<img src=".github/cl2.jpeg?raw=true" height="500px"/>
+<img src=".github/cl3.jpeg?raw=true" height="500px"/>
 </div>
 
 ---
