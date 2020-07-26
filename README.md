@@ -1,6 +1,6 @@
 # Clima agora ⛅
 
->Chat with several people in and have fun
+>Aplicativo para informar o clima da sua localização
 
 [![Author](https://img.shields.io/badge/author-EdersonDav-000000?style=flat-square)](https://github.com/EdersonDav)
 
