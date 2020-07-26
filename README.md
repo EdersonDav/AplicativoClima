@@ -4,7 +4,7 @@
 
 [![Author](https://img.shields.io/badge/author-EdersonDav-000000?style=flat-square)](https://github.com/EdersonDav)
 
-### Registration Screen
+### Tela do app
 <div align="center" >
 <img src=".github/cl1.jpeg?raw=true" width="200px"/>
 <img src=".github/cl2.jpeg?raw=true" width="200px"/>
