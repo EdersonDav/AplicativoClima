@@ -52,7 +52,7 @@
 
 `npm start`
 
-**No seu navegador ora abrir a aba do expo e com o seu smartphone leia o QR-Code para abrir a aplicação no aplicativo do expo, PS: Não esqueça de permitir a captura de sua localização**
+**No seu navegador vai abrir a aba do expo e com o seu smartphone leia o QR-Code para abrir a aplicação no aplicativo do expo, PS: Não esqueça de permitir a captura de sua localização**
 
 # 👨🏿‍💻 Tecnologias Usadas
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

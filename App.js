@@ -25,7 +25,7 @@ export default function App() {
       params: {
         lat: latitude,
         lon: longitude,
-        appid: 'fe24c73aebe1e807962d29a48a9dcc6c',
+        appid: '<Adicione a sua API KEY>',
         lang: 'pt',
         units: 'metric'
       }
