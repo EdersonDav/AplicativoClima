@@ -8,7 +8,6 @@
 <div align="center" >
 <img src=".github/cl1.jpeg?raw=true" width="200px"/>
 <img src=".github/cl2.jpeg?raw=true" width="200px"/>
-<img src=".github/cl3.jpeg?raw=true" width="200px"/>
 </div>
 
 ---
