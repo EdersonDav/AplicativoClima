@@ -38,7 +38,7 @@
 
 `appid: '<Adicione a sua API KEY>'`
 
-**Para uma melhor experiência recomendo que instale em seu smartphone o aplicativo [Expo](https://expo.io/)
+**Para uma melhor experiência recomendo que instale em seu smartphone o aplicativo [Expo](https://expo.io/)**
 
 ### Instalando dependências
 
