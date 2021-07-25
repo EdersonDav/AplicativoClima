@@ -1,6 +1,6 @@
 # Clima agora ⛅
 
->Aplicativo para informar o clima da sua localização
+>Aplicativo para informar o clima da sua localização.
 
 [![Author](https://img.shields.io/badge/author-EdersonDav-000000?style=flat-square)](https://github.com/EdersonDav)
 
@@ -15,11 +15,11 @@
 
 # :pushpin: Índice
 
-- [Recursos](#rocket-recursos)
-- [Instalação](#-instalação)
-- [Começando](#-começando)
-- [Tecnologias Usadas](#-tecnologias-usadas)
-- [Créditos](#-créditos)
+- [Recursos](#rocket-recursos).
+- [Instalação](#-instalação).
+- [Começando](#-começando).
+- [Tecnologias Usadas](#-tecnologias-usadas).
+- [Créditos](#-créditos).
 
 # :rocket: Recursos
 
